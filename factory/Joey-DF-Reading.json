@@ -1,0 +1,9 @@
+{
+	"name": "Joey-DF-Reading",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b1d8ee64-a22a-4fa5-bcaf-95fde9f21652",
+		"tenantId": "61bad5de-d426-4a5d-a6ba-7342a7cb48a5"
+	}
+}

@@ -1,0 +1,102 @@
+{
+	"name": "DestinationDataset_fqo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSqlReading",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "bookid",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "title",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "author",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "addauthors",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "isbn10",
+				"type": "character",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "isbn13",
+				"type": "bigint",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "avgrating",
+				"type": "numeric",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "publisher",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "binding",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "pagecount",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "publishyear",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "originalpublicationyear",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "datestarted",
+				"type": "date",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "datefinished",
+				"type": "date",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "bronze",
+			"table": "2025Reading"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

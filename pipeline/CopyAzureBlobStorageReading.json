@@ -1,0 +1,245 @@
+{
+	"name": "CopyAzureBlobStorageReading",
+	"properties": {
+		"description": "Copying data from Reading Azure Blob Storage Container into postgreSQL",
+		"activities": [
+			{
+				"name": "Copy_fqo",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "reading//"
+					},
+					{
+						"name": "Destination",
+						"value": "bronze.2025Reading"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings",
+							"skipLineCount": 0
+						}
+					},
+					"sink": {
+						"type": "AzurePostgreSqlSink",
+						"writeBatchSize": 1000000,
+						"writeBatchTimeout": "00:30:00"
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Book Id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "bookid",
+									"type": "Int32",
+									"physicalType": "integer"
+								}
+							},
+							{
+								"source": {
+									"name": "Title",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "title",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "Author",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "author",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "Additional Authors",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "addauthors",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "ISBN",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "isbn10",
+									"type": "String",
+									"physicalType": "character"
+								}
+							},
+							{
+								"source": {
+									"name": "ISBN13",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "isbn13",
+									"type": "Int64",
+									"physicalType": "bigint"
+								}
+							},
+							{
+								"source": {
+									"name": "Average Rating",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "avgrating",
+									"type": "Decimal",
+									"physicalType": "numeric"
+								}
+							},
+							{
+								"source": {
+									"name": "Publisher",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "publisher",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "Binding",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "binding",
+									"type": "String",
+									"physicalType": "character varying"
+								}
+							},
+							{
+								"source": {
+									"name": "Number of Pages",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "pagecount",
+									"type": "Int32",
+									"physicalType": "integer"
+								}
+							},
+							{
+								"source": {
+									"name": "Year Published",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "publishyear",
+									"type": "Int32",
+									"physicalType": "integer"
+								}
+							},
+							{
+								"source": {
+									"name": "Original Publication Year",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "originalpublicationyear",
+									"type": "Int32",
+									"physicalType": "integer"
+								}
+							},
+							{
+								"source": {
+									"name": "Date Started",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "datestarted",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							},
+							{
+								"source": {
+									"name": "Date Read",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "datefinished",
+									"type": "DateTime",
+									"physicalType": "date"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_fqo",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_fqo",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-11-03T23:09:37Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

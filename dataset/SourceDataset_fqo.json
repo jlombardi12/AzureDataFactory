@@ -1,0 +1,84 @@
+{
+	"name": "SourceDataset_fqo",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorageReading",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "reading"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Book Id",
+				"type": "String"
+			},
+			{
+				"name": "Title",
+				"type": "String"
+			},
+			{
+				"name": "Author",
+				"type": "String"
+			},
+			{
+				"name": "Additional Authors",
+				"type": "String"
+			},
+			{
+				"name": "ISBN",
+				"type": "String"
+			},
+			{
+				"name": "ISBN13",
+				"type": "String"
+			},
+			{
+				"name": "My Rating",
+				"type": "String"
+			},
+			{
+				"name": "Average Rating",
+				"type": "String"
+			},
+			{
+				"name": "Publisher",
+				"type": "String"
+			},
+			{
+				"name": "Binding",
+				"type": "String"
+			},
+			{
+				"name": "Number of Pages",
+				"type": "String"
+			},
+			{
+				"name": "Year Published",
+				"type": "String"
+			},
+			{
+				"name": "Original Publication Year",
+				"type": "String"
+			},
+			{
+				"name": "Date Started",
+				"type": "String"
+			},
+			{
+				"name": "Date Read",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
