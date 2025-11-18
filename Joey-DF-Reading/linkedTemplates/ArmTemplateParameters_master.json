@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Joey-DF-Reading"
+		},
+		"AzureBlobStorageReading_connectionString": {
+			"value": ""
+		},
+		"AzurePostgreSqlReading_password": {
+			"value": ""
+		},
+		"BronzeReading_password": {
+			"value": ""
+		},
+		"AzurePostgreSqlReading_properties_typeProperties_server": {
+			"value": "joeydbpostgre.postgres.database.azure.com"
+		},
+		"AzurePostgreSqlReading_properties_typeProperties_database": {
+			"value": "Reading"
+		},
+		"AzurePostgreSqlReading_properties_typeProperties_username": {
+			"value": "jlombardi"
+		},
+		"BronzeReading_properties_typeProperties_server": {
+			"value": "reading.database.windows.net"
+		},
+		"BronzeReading_properties_typeProperties_database": {
+			"value": "BronzeReading"
+		},
+		"BronzeReading_properties_typeProperties_userName": {
+			"value": "jlombardi"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

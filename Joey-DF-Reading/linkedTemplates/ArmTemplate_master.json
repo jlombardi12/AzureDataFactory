@@ -1,0 +1,105 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Joey-DF-Reading"
+		},
+		"AzureBlobStorageReading_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorageReading'"
+		},
+		"AzurePostgreSqlReading_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzurePostgreSqlReading'"
+		},
+		"BronzeReading_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'BronzeReading'"
+		},
+		"AzurePostgreSqlReading_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "joeydbpostgre.postgres.database.azure.com"
+		},
+		"AzurePostgreSqlReading_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Reading"
+		},
+		"AzurePostgreSqlReading_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "jlombardi"
+		},
+		"BronzeReading_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "reading.database.windows.net"
+		},
+		"BronzeReading_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "BronzeReading"
+		},
+		"BronzeReading_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "jlombardi"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Joey-DF-Reading_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureBlobStorageReading_connectionString": {
+						"value": "[parameters('AzureBlobStorageReading_connectionString')]"
+					},
+					"AzurePostgreSqlReading_password": {
+						"value": "[parameters('AzurePostgreSqlReading_password')]"
+					},
+					"BronzeReading_password": {
+						"value": "[parameters('BronzeReading_password')]"
+					},
+					"AzurePostgreSqlReading_properties_typeProperties_server": {
+						"value": "[parameters('AzurePostgreSqlReading_properties_typeProperties_server')]"
+					},
+					"AzurePostgreSqlReading_properties_typeProperties_database": {
+						"value": "[parameters('AzurePostgreSqlReading_properties_typeProperties_database')]"
+					},
+					"AzurePostgreSqlReading_properties_typeProperties_username": {
+						"value": "[parameters('AzurePostgreSqlReading_properties_typeProperties_username')]"
+					},
+					"BronzeReading_properties_typeProperties_server": {
+						"value": "[parameters('BronzeReading_properties_typeProperties_server')]"
+					},
+					"BronzeReading_properties_typeProperties_database": {
+						"value": "[parameters('BronzeReading_properties_typeProperties_database')]"
+					},
+					"BronzeReading_properties_typeProperties_userName": {
+						"value": "[parameters('BronzeReading_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
