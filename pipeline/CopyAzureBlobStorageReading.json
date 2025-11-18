@@ -34,14 +34,15 @@
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "DelimitedTextReadSettings",
-							"skipLineCount": 0
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
-						"type": "AzurePostgreSqlSink",
-						"writeBatchSize": 1000000,
-						"writeBatchTimeout": "00:30:00"
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate",
+						"disableMetricsCollection": false
 					},
 					"enableStaging": false,
 					"validateDataConsistency": false,
@@ -232,7 +233,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DestinationDataset_fqo",
+						"referenceName": "2025Reading",
 						"type": "DatasetReference"
 					}
 				]
