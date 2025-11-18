@@ -1,0 +1,17 @@
+{
+	"name": "BronzeReading",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "reading.database.windows.net",
+			"database": "BronzeReading",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "jlombardi",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDQ5NjY2NjhCLTA4RTktNEI2MC1BRTQ5LTNBQzU5QUZBQkFBQ182NjYyODRhYi04NTM5LTRkMGMtOWUyZi1iYmUwZDhlMDAyMTMiDQp9"
+		}
+	}
+}
