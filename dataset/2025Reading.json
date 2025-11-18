@@ -1,0 +1,16 @@
+{
+	"name": "2025Reading",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "BronzeReading",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "2025Reading"
+		}
+	}
+}
